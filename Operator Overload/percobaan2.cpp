@@ -6,21 +6,15 @@ class SalesOffice
 {
 friend ostream &operator<<(ostream &, const SalesOffice);
 
-private:
+protected:
     string officeName;
     double sales;
 
 public:
     SalesOffice(string, double);
     double operator/(SalesOffice);
-    double operator<<(SalesOffice);
-    string getofficeName();
-};
 
-string SalesOffice::getofficeName()
-{
-    return officeName;
-}
+};
 
 SalesOffice::SalesOffice(string office, double salesAmt)
 {
@@ -35,11 +29,12 @@ double SalesOffice::operator/(SalesOffice office)
     return ratio;
 }
 
-ostream &operator<<(ostream out, const SalesOffice anOffice)
+ostream &operator<<(ostream& out, const SalesOffice anOffice)
 {
     out << "The " << anOffice.officeName << " Office Sold $" << anOffice.sales << endl;
     return out;
 }
+
 
 int main()
 {
